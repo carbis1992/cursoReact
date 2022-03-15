@@ -1,0 +1,41 @@
+
+.menuNav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    width: 65px;
+    /* margin: 10px; */
+    cursor: pointer;
+}
+.logo:hover{
+    width: 70px;
+}
+.listaLinks{
+    list-style: none;
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+a:hover{
+    /* font-size: 17px; */
+    text-decoration: underline;
+}
+
+.btnLogin{
+    width: 50px;
+    height: 25px;
+    border-radius: 10px;
+    border: 1px;
+    cursor: pointer;
+}
+
+.iconoCarrito{
+    color:rgb(77 71 71);
+    cursor: pointer;
+}
