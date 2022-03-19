@@ -1,0 +1,15 @@
+
+.saludo{
+    color: cadetblue;
+    text-align: center;
+}
+.bienvenidaParrafo{
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+}
+.productoCard{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

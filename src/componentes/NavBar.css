@@ -24,7 +24,8 @@ a{
 }
 a:hover{
     /* font-size: 17px; */
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    font-weight: bold;
 }
 
 .btnLogin{
@@ -32,10 +33,5 @@ a:hover{
     height: 25px;
     border-radius: 10px;
     border: 1px;
-    cursor: pointer;
-}
-
-.iconoCarrito{
-    color:rgb(77 71 71);
     cursor: pointer;
 }
