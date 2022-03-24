@@ -3,7 +3,6 @@ import logo from '../imagenes/logo.jpg';
 import './NavBar.css';
 
 const NavBar = ({listaLiks ,children}) => {
-    console.log(listaLiks);
     return(
         <>
             <nav className='menuNav'>
