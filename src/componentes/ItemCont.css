@@ -1,0 +1,45 @@
+.calculadoraContainer{
+    width: 15%;
+    text-align: center;
+    border: 1px solid lightblue;
+    padding: 20px;
+    margin-left: 42%;
+}
+
+.sumaRestaProd{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    margin: 11px;
+}
+.btnCarrito{
+    background-color: transparent;
+    border: none;
+    color: lightblue;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid;
+    padding: 6px;
+    border-radius: 7px;
+}
+
+.sumRes{
+    border: none;
+}
+
+.productoCarrito{
+    margin: 0;
+}
+.btnComprarResetear{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.btnCompraReset{
+    width: 75px;
+}
+

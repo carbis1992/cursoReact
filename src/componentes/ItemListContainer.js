@@ -6,14 +6,16 @@ export const ItemListContainer = ({nombre, apellido, productos}) => {
         <>
             <h1 className='saludo'>Bienvenido {nombre} {apellido}</h1>
             <p className='bienvenidaParrafo'>Espero que te gusten nuestros productos!</p>
-            {productos.map((elemento, index)=>{ 
-                    return <>
-                        <div className='productoCard'>
-                            <p key={index}>{elemento.nomb} </p>
-                            <p key={index}>${elemento.precio}</p>
-                        </div>
-                    </>
-                })}
+            <div className='contenedor'>
+                {productos.map((elemento, index)=>{ 
+                        return (
+                            <div key={index} className='productoCard'>
+                                <p>{elemento.nomb} </p>
+                                <p>${elemento.precio}</p>
+                            </div>
+                        )
+                    })}
+            </div>
         </>
     )
 }

@@ -9,7 +9,12 @@
     text-align: center;
 }
 .productoCard{
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center; */
+}
+.contenedor{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
 }
