@@ -8,13 +8,3 @@
     text-decoration: underline;
     text-align: center;
 }
-.productoCard{
-    /* display: flex;
-    justify-content: space-evenly;
-    align-items: center; */
-}
-.contenedor{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-items: center;
-}

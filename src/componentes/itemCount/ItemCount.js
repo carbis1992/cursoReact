@@ -1,28 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './ItemCont.css';
+import React, { useState } from 'react';
+import './ItemCount.css';
 
-export const ItemCont = ({stock, initial, funcion}) => {
-
-    // const [mensaje, setMensaje] = useState('');
-    // const [usario, setUsuario] = useState({});
+export const ItemCount = ({stock, initial, funcion}) => {
     
-    // const [usarios, setUsuarios] = useState([]);
-    // const agregarObjeto = () =>{
-    //     setUsuarios([...usarios,{name:'pepe'}]);
-    //     }
-
-    
-    const [setup, setSetup] = useState(false);
-    
-    const [contador, setContador] = useState(initial);  
-
-
-    useEffect(() => {
-        console.log("Se ejecuto el useEffect");
-        setTimeout(() => {
-            setSetup(setup + 1)
-        }, 2000);
-    }, [contador]);
+    const [contador, setContador] = useState(initial);   
 
     const sumador = () =>{
         if(contador < stock){
@@ -59,8 +40,6 @@ export const ItemCont = ({stock, initial, funcion}) => {
                 <button className='btnCarrito btnCompraReset' onClick={funcionCreadaEnPadre}>Comprar</button>
             </div>
         </div>
-
-        <h1>{setup}</h1>
         </>
     )
 }

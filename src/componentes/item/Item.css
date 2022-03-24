@@ -1,0 +1,26 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+}
+
+.productoCard{
+    margin-bottom: 30px;
+    width: 100%;
+    text-align-last: center;
+}
+
+.imagenProducto{
+    width: 160px;
+}
+
+.btnDetallesProd{
+    background: white;
+    border: none;
+    border: 1px solid cadetblue;
+    width: 70px;
+    border-radius: 8px;
+    height: 25px;
+    cursor: pointer;
+    color: cadetblue;
+}
