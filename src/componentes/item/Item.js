@@ -3,6 +3,7 @@ import { ItemCount } from "../itemCount/ItemCount";
 import './Item.css'; 
 
 export const Item = ({img, nomb, precio, onAdd}) => {
+
     return(
         <>
             <div className="productoCard">

@@ -1,0 +1,77 @@
+
+.container{
+    text-align: -webkit-center;
+    margin-bottom: 60px;
+}
+.contenedorDescripcion{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 50%;
+    align-items: center;
+    border: 1px solid cadetblue;
+    box-shadow: 4px 5px rgba(95, 158, 160, 0.12);
+}
+
+.fotoDescrp{
+    grid-column: 1;
+    width: 90%;
+}
+
+.descrip{
+    grid-column: 2;
+    text-align-last: start;
+    padding: 15px;
+}
+
+.descr{
+    font-weight: 500;
+}
+
+.nuevoProd{
+    display: flex;
+    align-items: center;
+}
+
+.tituloNewProd{
+    margin: 0;
+    margin-right: 5px;
+    font-weight: 500;
+    color: #79a4a6;
+}
+
+.tituloProducto{
+    margin: 0;
+    color: cadetblue;
+}
+.iconoStar{
+    width: 15px;
+}
+
+.precioProd{
+    font-size: 29px;
+    margin: 5px 0;
+    color: cadetblue;
+}
+
+.detailsProd{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detallesTitu{
+    margin-bottom: 0;
+    text-decoration-line: underline;
+}
+
+h4{
+    margin: 0 10px 0 0;
+}
+
+.recomendado{
+    margin: 0;
+    font-weight: 500;
+}
+.calculadoraContainer{
+    width: 100%;
+}

@@ -9,6 +9,9 @@
     width: 75%;
     text-align-last: center;
     text-align: -webkit-center;
+    padding: 35px 0;
+    border: 1px solid cadetblue;
+    box-shadow: 5px 5px rgba(95, 158, 160, 0.12);
 }
 
 .imagenProducto{

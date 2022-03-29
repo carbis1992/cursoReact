@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './componentes/navBar/NavBar';
 import { CartWidget } from './componentes/cartWidget/CartWidget';
 import { ItemListContainer } from './componentes/itemListContainer/ItemListContainer';
+import { ItemDetailContainer } from './componentes/itemDetailContainer/ItemDetailContainer';
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
         <CartWidget />
       </NavBar>  
       <ItemListContainer nombre={name} apellido={lastname}></ItemListContainer> 
+      <ItemDetailContainer></ItemDetailContainer>
     </>
   );
 };

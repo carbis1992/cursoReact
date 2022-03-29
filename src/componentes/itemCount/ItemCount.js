@@ -19,17 +19,16 @@ export const ItemCount = ({stock, initial, funcion}) => {
         } 
     };
 
-    const reset = () => {
-        setContador(initial);
-    }
+    // const reset = () => {
+    //     setContador(initial);
+    // }
     const funcionCreadaEnPadre = () => {
         funcion(contador);
     }
 
     return(        
         <>
-        <div className='calculadoraContainer'>
-            {/* <p className='productoCarrito'>Producto</p> */}
+        <div className='calculadoraContainer' id='calculadora'>
             <div className='sumaRestaProd'>
                 <button className='btnCarrito sumRes' onClick={restador}>-</button>
                 <p>{contador}</p>
