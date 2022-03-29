@@ -29,15 +29,15 @@ export const ItemCount = ({stock, initial, funcion}) => {
     return(        
         <>
         <div className='calculadoraContainer'>
-            <p className='productoCarrito'>Producto</p>
+            {/* <p className='productoCarrito'>Producto</p> */}
             <div className='sumaRestaProd'>
                 <button className='btnCarrito sumRes' onClick={restador}>-</button>
                 <p>{contador}</p>
                 <button className='btnCarrito sumRes' onClick={sumador}>+</button>
             </div>
             <div className='btnComprarResetear'>
-                <button className='btnCarrito btnCompraReset' onClick={reset}>Reset</button>
-                <button className='btnCarrito btnCompraReset' onClick={funcionCreadaEnPadre}>Comprar</button>
+                {/* <button className='btnCarrito btnCompraReset' onClick={reset}>Reset</button> */}
+                <button className='btnCarrito btnCompraReset' onClick={funcionCreadaEnPadre}>Agregar al carrito</button>
             </div>
         </div>
         </>

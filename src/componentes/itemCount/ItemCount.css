@@ -1,11 +1,5 @@
 .calculadoraContainer{
-    width: 15%;
-    text-align: center;
-    border: 1px solid lightblue;
-    padding: 20px;
-    margin-left: 42%;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    width: 50%;
 }
 
 .sumaRestaProd{
@@ -41,7 +35,4 @@
     margin: 10px;
 }
 
-.btnCompraReset{
-    width: 75px;
-}
 

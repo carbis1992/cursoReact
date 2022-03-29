@@ -1,6 +1,5 @@
 import React from 'react';
 import './ItemListContainer.css';
-import { ItemCount } from '../itemCount/ItemCount';
 import { ItemList } from '../itemList/ItemList';
 
 const productosIniciales = [
@@ -23,16 +22,11 @@ const promesa = new Promise((res, rej) => {
     
     export const ItemListContainer = ({nombre, apellido}) => {
 
-    const onAdd = (cont) => {    
-    alert('compraste ' + cont + ' productos');
-    }
-
     return(
         <>
             <h1 className='saludo'>Bienvenido {nombre} {apellido}</h1>
             <p className='bienvenidaParrafo'>Espero que te gusten nuestros productos!</p>
-            <ItemList arrPorducts={promesa}></ItemList>
-            <ItemCount stock={10} initial={1} funcion={onAdd}></ItemCount>      
+            <ItemList arrPorducts={promesa}></ItemList> 
         </>
     )
 }

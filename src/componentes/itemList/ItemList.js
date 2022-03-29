@@ -17,22 +17,23 @@ export const ItemList = ({arrPorducts}) => {
         });
     }, []);
 
-    const element = productos.map((elemento, index) => {
-        return(
-                <div className="productoCard" key={index}>
-                    <img alt="foto" src={elemento.img} className="imagenProducto" />
-                    <p>{elemento.nomb}</p>
-                    <p>${elemento.precio}</p>
-                    <button className="btnDetallesProd">Detalles</button>
-                </div>
-        );
-    });
+    
+    const onAdd = (cont) => {    
+        alert('compraste ' + cont + ' productos');
+        }
 
     return(
-        <>{
-            show ? <Item producto={element}></Item>
-            : <p>Espere...</p>
+        <>
+        <div className="contenedor">
+            {
+                show ? productos.map((elemento, index)=>{
+                    return(
+                        <Item {...elemento} onAdd={onAdd} key={index}></Item>
+                    );
+                })
+                : <p>Espere...</p>
             }
+        </div>
         </>
     )
 }
