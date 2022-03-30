@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ItemDetail } from "../itemDetail/ItemDetail";
+import { Loading } from "../loading/Loading";
 
 let respuesta = [];
 fetch('https://mocki.io/v1/05124854-c760-4f5e-b76c-a1284b6d941e')
@@ -29,7 +30,8 @@ export const ItemDetailContainer = () => {
                             <ItemDetail {...productoJson} key={index}></ItemDetail>
                         );
                     }) 
-                    : <p>Loading details...</p>
+                    : 
+                    <Loading></Loading>
                 }
             </div>
         </>

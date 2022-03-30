@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Item } from '../item/Item';
+import { Loading } from "../loading/Loading";
 
 export const ItemList = ({arrPorducts}) => {
     
@@ -31,7 +32,8 @@ export const ItemList = ({arrPorducts}) => {
                         <Item {...elemento} onAdd={onAdd} key={index}></Item>
                     );
                 })
-                : <p>Espere...</p>
+                : 
+                <Loading></Loading>
             }
         </div>
         </>
