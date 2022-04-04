@@ -32,7 +32,11 @@ const promesa = new Promise((res, rej) => {
 
     useEffect(() => {        
         promesa.then((prod) => {  
-            setProductos(prod);
+            if(name){
+                setProductos(prod.filter( (producto) => producto.categoria === name));
+            }else{
+                setProductos(prod);
+            }
             setShow(!show);
         })
         .catch(() => {
@@ -44,15 +48,12 @@ const promesa = new Promise((res, rej) => {
         <>
             <h1 className='saludo'>Bienvenido {nombre} {apellido}</h1>
             <p className='bienvenidaParrafo'>Espero que te gusten nuestros productos!</p>
-            {/* <NavLink to={'/producto/:id'}> */}
                 {
                     show ? 
                     <ItemList arrPorducts={productos} id={productos.id}></ItemList> 
                     : 
                     <Loading />
                 }
-            {/* </NavLink> */}
-
         </>
     )
 }

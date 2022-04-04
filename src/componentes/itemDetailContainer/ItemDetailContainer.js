@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ItemDetail } from "../itemDetail/ItemDetail";
 import { Loading } from "../loading/Loading";
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export const ItemDetailContainer = () => {
     
@@ -15,8 +15,8 @@ export const ItemDetailContainer = () => {
         try{
             const response = await fetch('https://mocki.io/v1/1f58066e-21b2-4690-9ae9-3d3f5ff7f487');
             const data = await response.json();            
-            data.filter( (a) =>{ return a.id = id });
-            setProductoDetalle(data);
+            const filterData = data.filter( (a) =>{ return a.id === id });
+            setProductoDetalle(filterData);
         }
         catch{
             setError(true);
@@ -42,9 +42,7 @@ export const ItemDetailContainer = () => {
                     :
                     productoDetalle.map((productoJson) =>{
                         return (
-                            <NavLink to={productoJson.id}>
-                            <ItemDetail {...productoJson} key={productoJson.id}></ItemDetail>
-                            </NavLink>
+                                <ItemDetail {...productoJson} key={productoJson.id}></ItemDetail>
                         );
                     })
                 }
