@@ -1,39 +1,28 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { Item } from '../item/Item';
-import { Loading } from "../loading/Loading";
+import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const ItemList = ({arrPorducts}) => {
-    
-    const inicial = [];
-    const [productos, setProductos] = useState(inicial);
-    const [show, setShow] = useState(false);
-    
-    useEffect(() => {        
-        arrPorducts.then((prod) => {            
-            setProductos(prod);
-            setShow(!show);
-        })
-        .catch(() => {
-            console.log('Error')
-        });
-    }, []);
-
     
     const onAdd = (cont) => {    
         alert('compraste ' + cont + ' productos');
         }
+        const { id } = useParams();
 
+        console.log(arrPorducts);
     return(
         <>
         <div className="contenedor">
             {
-                show ? productos.map((elemento, index)=>{
+                arrPorducts.map((elemento, index)=>{
                     return(
-                        <Item {...elemento} onAdd={onAdd} key={index}></Item>
+                        <NavLink to={'/producto/:id'} key={index} className="productoCard">
+                            <Item {...elemento} onAdd={onAdd} />
+                        </NavLink>
                     );
                 })
-                : 
-                <Loading></Loading>
+                
             }
         </div>
         </>

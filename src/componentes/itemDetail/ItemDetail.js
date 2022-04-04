@@ -6,13 +6,11 @@ import { yellow } from '@mui/material/colors';
 import { teal } from '@mui/material/colors';
 import './ItemDetail.css';
 
-export const ItemDetail = ({img, nomb, precio, id, material, colores, resistencia, stock}) => {
+export const ItemDetail = ({img, nomb, precio, material, id, colores, resistencia, stock}) => {
 
     return(
         <>
-            { 
-            (id === 1) &&
-                <div className="contenedorDescripcion">
+                <div className="contenedorDescripcion" id={id}>
                     <img alt="foto" src={img} className="fotoDescrp" />
                     <div className="descrip">
                         <div className='nuevoProd'>
@@ -22,11 +20,11 @@ export const ItemDetail = ({img, nomb, precio, id, material, colores, resistenci
                         <h1 className='tituloProducto'>{nomb}</h1>
                         <div>
                             <p className='recomendado'>Recomendado</p>
-                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }} ></StarIcon>
-                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }}></StarIcon>
-                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }}></StarIcon>
-                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }}></StarIcon> 
-                            <StarHalfIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }}></StarHalfIcon>
+                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }} />
+                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }} />
+                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }} />
+                            <StarIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }} /> 
+                            <StarHalfIcon className='iconoStar' sx={{ color: yellow[500], fontSize: 20 }} />
                         </div>
                         <h3 className='precioProd'>${precio}.-</h3>
                         <h4 className='detallesTitu'>Detalles</h4>
@@ -48,7 +46,6 @@ export const ItemDetail = ({img, nomb, precio, id, material, colores, resistenci
                         </div>
                     </div>
                 </div>
-            }
         </>
     )
 }

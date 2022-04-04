@@ -6,12 +6,12 @@ export const Item = ({img, nomb, precio, onAdd}) => {
 
     return(
         <>
-            <div className="productoCard">
+            <div>
                     <img alt="foto" src={img} className="imagenProducto" />
                     <p>{nomb}</p>
                     <p>${precio}</p>
                     <button className="btnDetallesProd">Detalles producto</button>
-                    <ItemCount stock={10} initial={1} funcion={onAdd}></ItemCount>
+                    <ItemCount stock={10} initial={1} funcion={onAdd} />
                 </div>
         </>
     )
