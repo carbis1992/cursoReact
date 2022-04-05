@@ -30,14 +30,15 @@ const promesa = new Promise((res, rej) => {
     
     const {name} = useParams();
 
-    useEffect(() => {        
+    useEffect(() => {     
+        setShow(false);   
         promesa.then((prod) => {  
             if(name){
                 setProductos(prod.filter( (producto) => producto.categoria === name));
             }else{
                 setProductos(prod);
             }
-            setShow(!show);
+            setShow(true);
         })
         .catch(() => {
             console.log('Error')

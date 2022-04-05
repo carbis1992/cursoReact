@@ -15,7 +15,7 @@ export const ItemDetailContainer = () => {
         try{
             const response = await fetch('https://mocki.io/v1/1f58066e-21b2-4690-9ae9-3d3f5ff7f487');
             const data = await response.json();            
-            const filterData = data.filter( (a) =>{ return a.id === id });
+            const filterData = data.filter( (a) =>{ return a.id === Number(id) });
             setProductoDetalle(filterData);
         }
         catch{
