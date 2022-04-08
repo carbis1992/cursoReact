@@ -1,12 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
 import { yellow } from '@mui/material/colors';
 import { teal } from '@mui/material/colors';
 import './ItemDetail.css';
+import { ItemCount } from "../itemCount/ItemCount";
+import { ComponenteDeEventos } from '../componenteEventos/ComponenteDeEventos';
 
-export const ItemDetail = ({img, nomb, precio, material, id, colores, resistencia, stock}) => {
+
+export const ItemDetail = ({img, nomb, precio, material, id, colores, resistencia, stock}) => {    
+    const inicio = 1;
+
+    const [cantidadProductos, setCantidadProductos] = useState(inicio);
+    const [productoCarrito, setProductoCarrito] = useState({});
+    const [productosCarrito, setProductosCarrito] = useState([]);
+
+
+    const onAdd = (contador) => {
+
+            setCantidadProductos(contador);
+    
+            console.log('Agregaste ' + cantidadProductos + ' del producto ' + id)
+    
+            setProductoCarrito({img, nomb, precio, id, cantidadProductos});
+            console.log(productoCarrito)
+
+
+        return(cantidadProductos)
+    }
+    
+    const listaCarrito = () => {
+        
+        setProductosCarrito([...productosCarrito,productoCarrito])
+        console.log(productosCarrito)
+    }
 
     return(
         <>
@@ -46,6 +74,10 @@ export const ItemDetail = ({img, nomb, precio, material, id, colores, resistenci
                         </div>
                     </div>
                 </div>
+                <ComponenteDeEventos></ComponenteDeEventos>
+                <ItemCount stock={stock} initial={1} nombre={nomb} precio={precio} id={id} onAdd={onAdd}/> 
+                {/* item count tiene q guardar la compra (el state) */}
+                <button className='btnCarrito' onClick={listaCarrito}>Finalizar compra</button>
         </>
     )
 }

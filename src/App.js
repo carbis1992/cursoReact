@@ -5,6 +5,7 @@ import { ItemDetailContainer } from './componentes/itemDetailContainer/ItemDetai
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Cart } from './componentes/cart/Cart';
 import { Error } from './componentes/error/Error';
+import { ComponenteDeEventos } from './componentes/componenteEventos/ComponenteDeEventos';
 
 const App = () => {
 
@@ -26,7 +27,7 @@ const App = () => {
         <Route path="/producto/:id" element={<ItemDetailContainer />}/>
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<Error />}/>
-      </Routes>      
+      </Routes>     
     </BrowserRouter>
   );
 };
