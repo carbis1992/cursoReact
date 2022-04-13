@@ -42,7 +42,7 @@ export const ItemDetailContainer = () => {
                     :
                     productoDetalle.map((productoJson) =>{
                         return (
-                                <ItemDetail {...productoJson} key={productoJson.id}></ItemDetail>
+                                <ItemDetail productoJson={productoJson} key={productoJson.id}></ItemDetail>
                         );
                     })
                 }

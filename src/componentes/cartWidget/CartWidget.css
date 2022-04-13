@@ -2,3 +2,15 @@
     color:rgb(77 71 71);
     cursor: pointer;
 }
+
+.carritoCant{
+    display: flex;
+    align-items: center;
+}
+
+.cantCarrito{
+    margin-left: 10px;
+    background-color: #e36c6c7a;
+    padding: 2px 7px;
+    border-radius: 65%;
+}

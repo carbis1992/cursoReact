@@ -5,7 +5,9 @@ import { ItemDetailContainer } from './componentes/itemDetailContainer/ItemDetai
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Cart } from './componentes/cart/Cart';
 import { Error } from './componentes/error/Error';
-import { ComponenteDeEventos } from './componentes/componenteEventos/ComponenteDeEventos';
+import CustomProvider from './CartContext/CartContext';
+// import { ComponenteDeEventos } from './componentes/componenteEventos/ComponenteDeEventos';
+
 
 const App = () => {
 
@@ -20,14 +22,16 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <NavBar listaLiks={links} />  
-      <Routes>
-        <Route path="/" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
-        <Route path="/categorias/:name" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
-        <Route path="/producto/:id" element={<ItemDetailContainer />}/>
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<Error />}/>
-      </Routes>     
+      <CustomProvider>
+        <NavBar listaLiks={links} />  
+        <Routes>
+          <Route path="/" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
+          <Route path="/categorias/:name" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
+          <Route path="/producto/:id" element={<ItemDetailContainer />}/>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<Error />}/>
+        </Routes>     
+        </CustomProvider>
     </BrowserRouter>
   );
 };

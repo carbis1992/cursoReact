@@ -22,6 +22,11 @@
     border-radius: 7px;
 }
 
+.btnFinalizarCompra{
+    margin-top:25px;
+    margin-left: 10px;
+}
+
 .sumRes{
     border: none;
 }

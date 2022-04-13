@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './ItemCount.css';
 
 export const ItemCount = ({stock, initial, onAdd}) => {
@@ -19,9 +19,6 @@ export const ItemCount = ({stock, initial, onAdd}) => {
         } 
     };
 
-    // const reset = () => {
-    //     setContador(initial);
-    // }
     const agregarAlCarrito = () => {
         onAdd(contador);
     }
@@ -36,7 +33,6 @@ export const ItemCount = ({stock, initial, onAdd}) => {
                 <button className='btnCarrito sumRes' onClick={sumador}>+</button>
             </div>
             <div className='btnComprarResetear'>
-                {/* <button className='btnCarrito btnCompraReset' onClick={reset}>Reset</button> */}
                 <button className='btnCarrito btnCompraReset' onClick={()=>agregarAlCarrito(contador)} contador={contador}>Agregar al carrito</button>
             </div>
         </div>
