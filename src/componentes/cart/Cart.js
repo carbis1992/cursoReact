@@ -1,17 +1,26 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { contexto } from "../../CartContext/CartContext";
 import './Cart.css';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { NavLink } from "react-router-dom";
 
 export const Cart = () => {
-    const {cart, removeItem, clear, cantProductos} = useContext(contexto);
-
+    const {cart, removeItem, clear, total} = useContext(contexto);
+    const [carritoVacio, setCarritoVacio] = useState(false);
+    
+    useEffect(()=>{
+        if(cart.length > 0){
+            setCarritoVacio(true);
+        }
+    }, [cart]);
+    
     const deleteElement = (id) =>{
         removeItem(id);
     }
 
     const vaciarCarrito = () => {
         clear();
+        setCarritoVacio(false);
     }
     
     const productoCarrito = cart.map((item)=>{
@@ -28,11 +37,21 @@ export const Cart = () => {
 
     return(
         <div className="cartContainer"> 
-            <p>Cant productos: {cantProductos}</p>
-            <div>
-                {productoCarrito}
-            </div>
-            <button className="btnCarrito" onClick={vaciarCarrito}>Vaciar Carrito</button>
+            {
+                carritoVacio ? 
+                <>    
+                    <div>
+                        {productoCarrito}
+                    </div>
+                    <p>TOTAL: {total}</p>
+                    <button className="btnCarrito vaciarCarritoBtn" onClick={vaciarCarrito}>Vaciar Carrito</button>
+                </> 
+                :
+                    <h1>No hay productos en el carrito</h1>
+            } 
+                    <NavLink to={'/'}>
+                        <button className='btnCarrito'>Volver al inicio</button>
+                    </NavLink>
         </div>
     )
 }

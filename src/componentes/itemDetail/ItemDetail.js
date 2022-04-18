@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import NewReleasesIcon from '@mui/icons-material/NewReleases';
@@ -10,13 +10,14 @@ import { contexto } from "../../CartContext/CartContext";
 import { NavLink } from 'react-router-dom';
 
 export const ItemDetail = ({productoJson}) => {    
-    const {addItem, isInCart, getCantidadProducts } = useContext(contexto);
+    const {addItem, isInCart, getTotalCarrito, getCantidadProducts} = useContext(contexto);
     const [finalizarCompra, setFinalizarCompra] = useState(true);
     
     const onAdd = (contador) => {
         addItem(productoJson,contador);
         setFinalizarCompra(false);
         isInCart(productoJson.id);
+        getTotalCarrito(Number(productoJson.precio), contador);
         getCantidadProducts();
     }
 
