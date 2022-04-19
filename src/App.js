@@ -14,10 +14,10 @@ const App = () => {
   const name = "Carla";
   const lastname = "Bisagni";
   const links = [
-    {name: "Cocina", route: "categorias/cocina", id: 1},
-    {name: "Jardin", route: "categorias/jardin", id: 2},
-    {name: "Living", route: "categorias/living", id: 3},
-    {name: "Habitacion", route: "categorias/habitacion", id: 4}
+    {name: "Cocina", route: "categoria/cocina", id: 1},
+    {name: "Jardin", route: "categoria/jardin", id: 2},
+    {name: "Living", route: "categoria/living", id: 3},
+    {name: "Habitacion", route: "categoria/habitacion", id: 4}
 ];
 
   return (
@@ -26,7 +26,7 @@ const App = () => {
         <NavBar listaLiks={links} />  
         <Routes>
           <Route path="/" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
-          <Route path="/categorias/:name" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
+          <Route path="/categoria/:name" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
           <Route path="/producto/:id" element={<ItemDetailContainer />}/>
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />}/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../imagenes/logo.jpg';
 import './NavBar.css';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { CartWidget } from '../cartWidget/CartWidget';
 
 const NavBar = ({listaLiks}) => {

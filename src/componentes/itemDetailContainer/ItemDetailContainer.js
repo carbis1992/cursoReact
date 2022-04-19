@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { ItemDetail } from "../itemDetail/ItemDetail";
 import { Loading } from "../loading/Loading";
 import { useParams } from 'react-router-dom';
+import { db } from '../firebase/firebase'
+import {getDoc, collection, doc} from 'firebase/firestore';
 
 export const ItemDetailContainer = () => {
     
@@ -11,24 +13,22 @@ export const ItemDetailContainer = () => {
 
     const { id } = useParams();
 
-    const getItems = async () => {
-        try{
-            const response = await fetch('https://mocki.io/v1/1f58066e-21b2-4690-9ae9-3d3f5ff7f487');
-            const data = await response.json();            
-            const filterData = data.filter( (a) =>{ return a.id === Number(id) });
-            setProductoDetalle(filterData);
-        }
-        catch{
-            setError(true);
-        }
-        finally{
-            setLoading(false);
-        }
-    }
     
     useEffect(() => {
-        getItems();
-        setLoading(!loading);
+        const productsCollection = collection(db, "productos");
+        const refDoc = doc(productsCollection,id);
+        getDoc(refDoc)
+        .then((result) => {
+            const produ = {
+                id, 
+                ...result.data()
+            }
+            setProductoDetalle(produ);
+            setLoading(!loading);
+        })
+        .catch(()=>{
+            setError(true);
+        })
     }, [id]);
 
     return (
@@ -40,11 +40,7 @@ export const ItemDetailContainer = () => {
                     error ? 
                     <h1>Lo sentimos, hubo un error</h1>
                     :
-                    productoDetalle.map((productoJson) =>{
-                        return (
-                                <ItemDetail productoJson={productoJson} key={productoJson.id}></ItemDetail>
-                        );
-                    })
+                    <ItemDetail productoDetalle={productoDetalle} />
                 }
             </div>
         </>
