@@ -46,13 +46,12 @@ export const Cart = () => {
 
         cart.forEach((product)=>{
             // setCantStock(product.stock);
-            console.log(product.stock - product.quantity)
             const orderDoc = doc(db, "productos", "id");
-            const stockActual = product.stock - product.quantity
-            // updateDoc(orderDoc, stockActual);
+            const stockActual = product.stock - product.quantity;
+            console.log(stockActual)
+            updateDoc(orderDoc, {stockActual});
         })
         
-        // 48 esta hardcodeado pero iria el stock menos la cantidad comprada 
         setFinalizar(true);
         clear();
     }
