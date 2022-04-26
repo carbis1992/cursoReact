@@ -39,7 +39,7 @@ export const ComponenteDeEventos = () => {
                 <button onClick={manejarClick}>Click (Agregar carrito)</button>
                 <a target="_blank" rel='noreferrer' href='https://google.com' onClick={prevenirDefault}>ir a google</a>
             </div>
-            {/* <Cart productos={productos} /> */}
+            <Cart productos={productos} />
         </>
     )
 }

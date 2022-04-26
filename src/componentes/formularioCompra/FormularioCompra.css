@@ -1,0 +1,37 @@
+
+.formularioCompra{
+    display: grid;
+    grid-template-columns: 30%;
+    justify-content: center;
+    padding: 30px;
+    text-align: left;
+}
+
+.formulario{
+    text-align: center;
+}
+
+.labelForm{
+    margin-bottom: 10px;
+}
+
+input{
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.btnPagar{
+    width: 22%;
+    justify-self: center;
+    margin-top: 15px;
+}
+
+#inputMail{
+    margin-left: 31px;
+}
+
+h1{
+    margin-bottom: 0;
+    color: cadetblue;
+    text-align: center;
+}

@@ -4,7 +4,7 @@ import {getDocs, collection, query, where, orderBy} from 'firebase/firestore';
 import { ItemList } from '../itemList/ItemList';
 import { Loading } from "../loading/Loading";
 import { useParams } from 'react-router-dom';
-import { db } from '../firebase/firebase'
+import { db } from '../../firebase/firebase';
     
     export const ItemListContainer = ({nombre, apellido}) => {
 
@@ -18,7 +18,7 @@ import { db } from '../firebase/firebase'
         const productosCollection = collection(db, 'productos');
         let q;
         if(name===undefined){
-            q = query(productosCollection, orderBy("categoria"));
+            q = query(productosCollection, orderBy("nomb"));
         } else{
             q = query(productosCollection, where("categoria", "==", name));
         }

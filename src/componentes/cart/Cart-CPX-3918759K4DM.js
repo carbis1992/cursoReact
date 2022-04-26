@@ -10,27 +10,27 @@ import { FormularioCompra } from "../formularioCompra/FormularioCompra";
 export const Cart = () => {
     const {cart, removeItem, clear, total} = useContext(contexto);
     const [carritoVacio, setCarritoVacio] = useState(false);
-    const [finalizar, setFinalizar] = useState(false);
     const ventaCollection = collection(db, "ventas");
     const [IdVenta, setIdVenta] = useState('');
-    const [compradorDatos, setCompradorDatos] = useState({});
-    const [cantStock, setCantStock] = useState(0);
 
+    // esto viene de firebase
+    const comprador = {
+        nombre: "juan",
+        apellido: "perex",
+        email: "carla@hotmail.com"
+    }
+
+    
+    
     useEffect(()=>{
         if(cart.length > 0){
             setCarritoVacio(true);
         }
-
     },[cart]);
-    
-    const datosComprador = (comprador) => {
-        setCompradorDatos({...comprador});
-        console.log(compradorDatos)
-    }
 
     const finalizarCompra = () => {
         addDoc(ventaCollection, {
-            compradorDatos,
+            comprador,
             items: cart,
             date: serverTimestamp(),
             total: total
@@ -44,16 +44,10 @@ export const Cart = () => {
         // foreach de cart, consultar las cantidades de productos comprados 
         // y desp actualizar el stock con update
 
-        cart.forEach((product)=>{
-            // setCantStock(product.stock);
-            console.log(product.stock - product.quantity)
-            const orderDoc = doc(db, "productos", "id");
-            const stockActual = product.stock - product.quantity
-            // updateDoc(orderDoc, stockActual);
-        })
-        
+        // const orderDoc = doc(db, "productos", "id");
+        // updateDoc(orderDoc, {stock: 48});
+
         // 48 esta hardcodeado pero iria el stock menos la cantidad comprada 
-        setFinalizar(true);
         clear();
     }
     
@@ -88,18 +82,17 @@ export const Cart = () => {
                     </div>
                     <p>TOTAL: {total}</p>
                     <button className="btnCarrito vaciarCarritoBtn" onClick={vaciarCarrito}>Vaciar Carrito</button>
+                    <NavLink to={'/finalizarCompra'}>
+                        {/* <FormularioCompra /> */}
                     <button className='btnCarrito finalizarBtn' onClick={finalizarCompra}>Finalizar Comprar</button>
+                    </NavLink>
                 </> 
-                    :
+                :
                     <h1>No hay productos en el carrito</h1>
             } 
-            {
-                finalizar &&
-                    <FormularioCompra datosComprador={datosComprador}></FormularioCompra>
-            }
-                <NavLink to={'/'}>
-                    <button className='btnCarrito'>Volver al inicio</button>
-                </NavLink>
+                    <NavLink to={'/'}>
+                        <button className='btnCarrito'>Volver al inicio</button>
+                    </NavLink>
         </div>
     )
 }
