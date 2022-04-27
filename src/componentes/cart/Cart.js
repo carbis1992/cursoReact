@@ -26,11 +26,6 @@ export const Cart = () => {
         setFinalizar(true);
         setCarritoVacio(false);
         setNoHayProductosEnElCarrito(false);
-        return(
-            <>
-                <h1>Gracias por tu compra</h1>
-            </>
-        )
     }
 
     const finalizarCompra = (comprador) => {
