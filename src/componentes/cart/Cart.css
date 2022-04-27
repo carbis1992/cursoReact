@@ -23,3 +23,11 @@
 .finalizarBtn{
     margin-right: 10px;
 }
+
+strong{
+    color: cadetblue;
+}
+
+.volverForm{
+    margin: 15px;
+}

@@ -35,3 +35,7 @@ h1{
     color: cadetblue;
     text-align: center;
 }
+
+button:disabled{
+    cursor: not-allowed;
+}

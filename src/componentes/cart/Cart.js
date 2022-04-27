@@ -4,33 +4,38 @@ import './Cart.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { NavLink } from "react-router-dom";
 import { db } from '../../firebase/firebase';
-import {addDoc, collection, serverTimestamp, updateDoc, doc} from "firebase/firestore";
-import { FormularioCompra } from "../formularioCompra/FormularioCompra";
+import {addDoc, collection, serverTimestamp, updateDoc, doc, increment} from "firebase/firestore";
+import Formulario from "../formularioCompra/Formulario";
 
 export const Cart = () => {
     const {cart, removeItem, clear, total} = useContext(contexto);
     const [carritoVacio, setCarritoVacio] = useState(false);
+    const [noHayProductosEnElCarrito, setNoHayProductosEnElCarrito] = useState(true);
     const [finalizar, setFinalizar] = useState(false);
     const ventaCollection = collection(db, "ventas");
-    const [IdVenta, setIdVenta] = useState('');
-    const [compradorDatos, setCompradorDatos] = useState({});
-    const [cantStock, setCantStock] = useState(0);
+    const [idVenta, setIdVenta] = useState('');
 
     useEffect(()=>{
         if(cart.length > 0){
             setCarritoVacio(true);
+            setNoHayProductosEnElCarrito(false);
         }
-
     },[cart]);
-    
-    const datosComprador = (comprador) => {
-        setCompradorDatos({...comprador});
-        console.log(compradorDatos)
+
+    const handleFinalize = () =>{
+        setFinalizar(true);
+        setCarritoVacio(false);
+        setNoHayProductosEnElCarrito(false);
+        return(
+            <>
+                <h1>Gracias por tu compra</h1>
+            </>
+        )
     }
 
-    const finalizarCompra = () => {
+    const finalizarCompra = (comprador) => {
         addDoc(ventaCollection, {
-            compradorDatos,
+            comprador,
             items: cart,
             date: serverTimestamp(),
             total: total
@@ -41,18 +46,10 @@ export const Cart = () => {
         .catch(()=>{
             console.log('error');
         })
-        // foreach de cart, consultar las cantidades de productos comprados 
-        // y desp actualizar el stock con update
-
         cart.forEach((product)=>{
-            // setCantStock(product.stock);
-            const orderDoc = doc(db, "productos", "id");
-            const stockActual = product.stock - product.quantity;
-            console.log(stockActual)
-            updateDoc(orderDoc, {stockActual});
+            const orderDoc = doc(db, "productos", product.id);
+            updateDoc(orderDoc, {stock: increment(-product.quantity)});
         })
-        
-        setFinalizar(true);
         clear();
     }
     
@@ -76,29 +73,41 @@ export const Cart = () => {
             </li>
         )
     })
-
+    
     return(
-        <div className="cartContainer"> 
-            {
-                carritoVacio ? 
-                <>    
+        <div className="cartContainer">                 
+            {    carritoVacio && 
+                <>
                     <div>
                         {productoCarrito}
                     </div>
                     <p>TOTAL: {total}</p>
                     <button className="btnCarrito vaciarCarritoBtn" onClick={vaciarCarrito}>Vaciar Carrito</button>
-                    <button className='btnCarrito finalizarBtn' onClick={finalizarCompra}>Finalizar Comprar</button>
+                    <button className='btnCarrito finalizarBtn' onClick={handleFinalize}>Finalizar Compra</button>
+                    <NavLink to={'/'}>
+                        <button className='btnCarrito'>Volver al inicio</button>
+                    </NavLink>
                 </> 
-                    :
-                    <h1>No hay productos en el carrito</h1>
-            } 
-            {
-                finalizar &&
-                    <FormularioCompra datosComprador={datosComprador}></FormularioCompra>
             }
-                <NavLink to={'/'}>
-                    <button className='btnCarrito'>Volver al inicio</button>
-                </NavLink>
+            {
+                noHayProductosEnElCarrito &&
+                <>
+                    <h1>No hay productos en el carrito</h1>
+                    <NavLink to={'/'}>
+                        <button className='btnCarrito'>Volver al inicio</button>
+                    </NavLink>
+                </>
+            }
+            {
+                    finalizar && 
+                <>    
+                    <Formulario finalizarCompra={finalizarCompra}></Formulario>   
+                    <strong>ID Venta: {idVenta}</strong><br></br>
+                    <NavLink to={'/'}>
+                        <button className='btnCarrito volverForm'>Volver al inicio</button>
+                    </NavLink>
+                </> 
+            }                
         </div>
     )
 }
