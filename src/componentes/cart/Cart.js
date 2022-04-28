@@ -55,6 +55,7 @@ export const Cart = () => {
     const vaciarCarrito = () => {
         clear();
         setCarritoVacio(false);
+        setNoHayProductosEnElCarrito(true);
     }
     
     const productoCarrito = cart.map((item)=>{
