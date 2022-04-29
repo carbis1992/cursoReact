@@ -7,6 +7,7 @@ import { CartWidget } from '../cartWidget/CartWidget';
 const NavBar = ({listaLiks}) => {
     return(
         <>
+        <NavLink to={'/homedecoBisagni'}>
             <nav className='menuNav'>
                 <NavLink to={'/homedecoBisagni'}><img className='logo' src={logo} alt='logo' /></NavLink> 
                 {listaLiks.map((element)=>{
@@ -19,6 +20,7 @@ const NavBar = ({listaLiks}) => {
                     <CartWidget />
                 </NavLink>
             </nav>
+        </NavLink>
         </>        
     );
 };
