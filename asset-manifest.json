@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/homedecoBisagni/static/css/main.3e8bc730.css",
-    "main.js": "/homedecoBisagni/static/js/main.8ec09081.js",
+    "main.css": "/homedecoBisagni/static/css/main.6542b46b.css",
+    "main.js": "/homedecoBisagni/static/js/main.1740926d.js",
     "static/js/787.8367f4d5.chunk.js": "/homedecoBisagni/static/js/787.8367f4d5.chunk.js",
     "static/media/logo.jpg": "/homedecoBisagni/static/media/logo.2e1a58ce2f503dec481d.jpg",
     "index.html": "/homedecoBisagni/index.html",
-    "main.3e8bc730.css.map": "/homedecoBisagni/static/css/main.3e8bc730.css.map",
-    "main.8ec09081.js.map": "/homedecoBisagni/static/js/main.8ec09081.js.map",
+    "main.6542b46b.css.map": "/homedecoBisagni/static/css/main.6542b46b.css.map",
+    "main.1740926d.js.map": "/homedecoBisagni/static/js/main.1740926d.js.map",
     "787.8367f4d5.chunk.js.map": "/homedecoBisagni/static/js/787.8367f4d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e8bc730.css",
-    "static/js/main.8ec09081.js"
+    "static/css/main.6542b46b.css",
+    "static/js/main.1740926d.js"
   ]
 }
