@@ -26,12 +26,10 @@ const CustomProvider = ({children}) => {
         }
     };
     const removeItem = (id) => {
-        // usar un filter para eliminar el id indicado
         const listaFiltrada = cart.filter((a) => a.id !== id);
         setCart(listaFiltrada);
     };
     const isInCart = (id) => {
-        // usar un find para determinar si un objeto existe dentro del array 
         const productoExistente = cart.find(item => item.id === id);
         if(productoExistente){
             return true;
@@ -46,7 +44,6 @@ const CustomProvider = ({children}) => {
     }
     
     const getCantidadProducts = () => {
-        // foreach
             cart.forEach((producto) => {
                 setCounter(counter + producto.quantity);
             });        

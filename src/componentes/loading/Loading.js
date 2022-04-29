@@ -12,7 +12,7 @@ export const Loading = () => {
           <>
              {
                  <section {...containerProps} className="loading">
-                    {indicatorEl} {/* renders only while loading */}
+                    {indicatorEl} 
                 </section>
             }
           </>

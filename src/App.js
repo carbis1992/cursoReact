@@ -6,8 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Cart } from './componentes/cart/Cart';
 import { Error } from './componentes/error/Error';
 import CustomProvider from './CartContext/CartContext';
-// import { ComponenteDeEventos } from './componentes/componenteEventos/ComponenteDeEventos';
-
+import Usuario from './componentes/usuarios/Usuarios';
 
 const App = () => {
 
@@ -25,7 +24,8 @@ const App = () => {
       <CustomProvider>
         <NavBar listaLiks={links} />  
         <Routes>
-          <Route path="/" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
+          <Route path="/homedecoBisagni" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
+          <Route path="/login" element={<Usuario/>}/>
           <Route path="/categoria/:name" element={<ItemListContainer nombre={name} apellido={lastname}/>}/>
           <Route path="/producto/:id" element={<ItemDetailContainer />}/>
           <Route path="/cart" element={<Cart />} />

@@ -43,7 +43,7 @@ import { db } from '../../firebase/firebase';
 
     return(
         <>
-            <h1 className='saludo'>Bienvenido {nombre} {apellido}</h1>
+            <h1 className='saludo'>Bienvenido!</h1>
             <p className='bienvenidaParrafo'>Espero que te gusten nuestros productos!</p>
                 {
                     show ? 

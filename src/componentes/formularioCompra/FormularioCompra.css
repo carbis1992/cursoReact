@@ -4,6 +4,7 @@
     grid-template-columns: 30%;
     justify-content: center;
     padding: 30px;
+    padding-bottom: 15px;
     text-align: left;
 }
 
@@ -21,9 +22,8 @@ input{
 }
 
 .btnPagar{
-    width: 22%;
+    width: 9%;
     justify-self: center;
-    margin-top: 15px;
 }
 
 #inputMail{
@@ -38,4 +38,9 @@ h1{
 
 button:disabled{
     cursor: not-allowed;
+}
+
+.btnFormHome{
+    text-align: center;
+    margin: 20px;
 }

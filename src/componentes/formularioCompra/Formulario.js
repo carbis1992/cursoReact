@@ -5,6 +5,7 @@ const Formulario = ({ finalizarCompra }) => {
     
     const [form, setForm] = useState({
         name: '',
+        apellido: '',
         email: '',
         phone: '',
         emailConfirmation: '', 
@@ -21,8 +22,8 @@ const Formulario = ({ finalizarCompra }) => {
     }
 
     const finalizePurchase = () => {
-        const { name, email, phone, numeroTarjeta, fechaVec, codSeg } = form
-        finalizarCompra({ name, email, phone, numeroTarjeta, fechaVec, codSeg });
+        const { name, email, phone, numeroTarjeta, fechaVec, codSeg, apellido } = form
+        finalizarCompra({ name, email, phone, numeroTarjeta, fechaVec, codSeg, apellido });
     }
 
     const disabled = !(
@@ -33,7 +34,8 @@ const Formulario = ({ finalizarCompra }) => {
         form.email === form.emailConfirmation &&
         form.numeroTarjeta.length > 0 &&
         form.fechaVec.length > 0 &&
-        form.codSeg.length > 0
+        form.codSeg.length > 0 &&
+        form.apellido.length > 0
     )
 
     return (
@@ -42,8 +44,8 @@ const Formulario = ({ finalizarCompra }) => {
             <form className='formularioCompra'>
                 <label  htmlFor="name" className='labelForm'>Nombre:</label>
                 <input placeholder="Juan" name="name" value={form.name} onChange={getContactData} type="text"/>
-                <label  htmlFor="lastName" className='labelForm'>Nombre:</label>
-                <input placeholder="Perez" name="lastName" value={form.apellido} onChange={getContactData} type="text"/>
+                <label  htmlFor="apellido" className='labelForm'>Apellido:</label>
+                <input placeholder="Perez" name="apellido" value={form.apellido} onChange={getContactData} type="text"/>
                 <label htmlFor="email" className='labelForm'>Email:</label>
                 <input placeholder="Email" name="email" value={form.email} onChange={getContactData} type="email"/>
                 <label htmlFor="phone" className='labelForm'>Telefono:</label>
